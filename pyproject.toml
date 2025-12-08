@@ -1,0 +1,11 @@
+[project]
+name = "langgraph-agentic-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bytez>=3.0.1",
+    "dotenv>=0.9.9",
+    "langgraph>=1.0.4",
+]

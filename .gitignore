@@ -1,0 +1,5 @@
+.env
+lgr.md
+uv.lock
+.venv
+__pycache__
