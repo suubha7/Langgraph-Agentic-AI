@@ -1,7 +1,7 @@
 ## **LangGraph** 
 ---
 
-### **Basic LangGraph**
+## **Basic LangGraph**
 **Scenario: Text Processor**
 
 **Task:**
@@ -35,4 +35,59 @@ Build a graph that takes long articles and creates smart summaries.
 - Use OpenAI/Anthropic LLM in nodes
 - Linear flow: extract → sentiment → summarize → END
 - State: article_text, key_points, sentiment, summary
+---
+
+## AI Recruiter Screener
+
+### Overview
+This project implements an **AI-powered job application screener**. It processes resumes step-by-step, evaluates candidates against job requirements, and generates interview questions, emails, and summaries.
+
+### Workflow
+The pipeline runs through the following nodes:
+
+1. **Extract Candidate Info**  
+   - Input: `resume_text`  
+   - Output: `candidate_info` (name, current_role, years_of_experience, skills, education)
+
+2. **Match Skills Against Job Requirements**  
+   - Compares candidate skills with `job_requirements`  
+   - Output: `skill_match_score` (0–10) + `missing_skills`
+
+3. **Evaluate Experience Relevance**  
+   - Scores candidate’s experience vs. job description  
+   - Output: `experience_score` (0–10)
+
+4. **Generate Interview Questions**  
+   - Based on missing skills and weak experience areas  
+   - Output: `questions`
+
+5. **Write Personalized Email**  
+   - Invitation if scores ≥ 7, otherwise rejection with encouragement  
+   - Output: `email`
+
+6. **Create Evaluation Summary**  
+   - Consolidates all results into a structured summary  
+   - Output: `summary`
+
+### State Variables
+The pipeline maintains the following state:
+- `resume_text`  
+- `candidate_info`  
+- `skill_match_score`  
+- `experience_score`  
+- `questions`  
+- `email`  
+- `summary`
+
+### Example
+**Resume (demo):**
+- Priya Sharma, 4 years experience, Python, SQL, AWS, FastAPI, Flask, B.Tech CS
+
+**Job Requirement (demo):**
+- Backend Engineer, 3–5 years, Python, SQL, AWS, Docker, Git, FastAPI/Flask
+
+### Usage
+- Feed `resume_text` and `requirements` into the pipeline.  
+- Each node prompt depends on the previous node’s output.  
+- Final output: structured evaluation summary + personalized email.
 ---
