@@ -91,3 +91,31 @@ The pipeline maintains the following state:
 - Each node prompt depends on the previous node’s output.  
 - Final output: structured evaluation summary + personalized email.
 ---
+
+## AI News Aggregator
+
+This project is a lightweight news‑summarization workflow built with **LangGraph**, **LangChain tools**, and a custom **AWS LLM**.
+
+**It fetches news from:**
+- DuckDuckGo Search  
+- Google News RSS  
+- Reddit public posts  
+
+All sources run in parallel, and the final node uses an LLM to generate a clean, unified summary.
+
+**How It Works**
+1. User provides a query  
+2. Workflow fetches news from all sources  
+3. Text is cleaned and normalized  
+4. LLM produces a concise final summary  
+
+**Run Example**
+```python
+query = {"query": "ai trends today"}
+response = workflow.invoke(query)
+print(response["final_response"])
+```
+**Purpose:**
+
+A simple, modular pipeline for aggregating and summarizing news using multiple sources and an LLM.
+---
