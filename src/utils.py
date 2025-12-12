@@ -27,8 +27,7 @@ class AWSLLM:
     def chat(
         self, 
         prompt: str, 
-        schema: Optional[Type[BaseModel]] = None
-    ) -> Any:
+        schema: Optional[Type[BaseModel]] = None) -> Any:
         """
         Send a chat message to the LLM.
         
