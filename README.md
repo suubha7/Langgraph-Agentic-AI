@@ -119,3 +119,47 @@ print(response["final_response"])
 
 A simple, modular pipeline for aggregating and summarizing news using multiple sources and an LLM.
 ---
+
+## 📬 Autonomous Email AI Agent
+
+A lightweight AI-powered email assistant built using **Python**, **LangGraph**, and **RAG**.  
+The agent automatically reads incoming emails, classifies intent, retrieves answers from a knowledge base, generates responses, and sends replies.
+
+**Features**
+
+- Automatic email reading (IMAP)
+- Spam detection and auto-deletion
+- Intent classification using LangGraph
+- RAG-based answers from a PDF knowledge base
+- LLM-generated responses
+- Automatic email sending (SMTP)
+- Graceful shutdown with Ctrl + C
+
+**How It Works**
+
+1. Fetch new emails  
+2. Classify: spam / normal / technical  
+3. For technical queries → run RAG  
+4. Generate a clean, professional reply  
+5. Send the email automatically  
+6. Loop continuously
+
+**Run the Agent**
+
+```python
+from email_client import EmailClient
+from workflow import workflow
+from agent_runner import run_agent
+
+client = EmailClient()
+run_agent(client, workflow)
+```
+
+**Knowledge Base**
+Includes a sample Recruitment Portal Knowledge Base PDF used for RAG retrieval.
+
+**Tech Stack**
+- Python
+- LangGraph
+- IMAP / SMTP
+- RAG (embeddings + vector search)
